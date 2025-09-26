@@ -1,23 +1,23 @@
-# Exemplo de Uso do rudder2snipe
+# rudder2snipe Usage Examples
 
-## Configuração Inicial
+## Initial Setup
 
-1. **Configure suas credenciais no arquivo settings.conf:**
+1. **Configure your credentials in the settings.conf file:**
 
 ```bash
 cp settings-rudder.conf.example settings.conf
 ```
 
-2. **Edite o arquivo settings.conf com suas informações:**
+2. **Edit the settings.conf file with your information:**
 
 ```ini
 [rudder]
-url = https://seu-servidor-rudder.dominio.com
-api_token = SEU-TOKEN-API-RUDDER-AQUI
+url = https://your-rudder-server.domain.com
+api_token = YOUR-RUDDER-API-TOKEN-HERE
 
 [snipe-it]
-url = https://sua-instancia-snipe.dominio.com
-apikey = SUA-CHAVE-API-SNIPE-AQUI
+url = https://your-snipe-instance.domain.com
+apikey = YOUR-SNIPE-API-KEY-HERE
 manufacturer_id = 2
 defaultStatus = 2
 computer_model_category_id = 2
@@ -29,67 +29,67 @@ _snipeit_os_2 = properties osName
 _snipeit_os_version_3 = properties osVersion
 ```
 
-## Comandos Básicos
+## Basic Commands
 
-### Teste de Conexão
+### Connection Test
 ```bash
 python3 rudder2snipe --connection_test
 ```
 
-### Execução em Modo Dry Run (Teste sem alterações)
+### Dry Run Mode (Test without changes)
 ```bash
 python3 rudder2snipe --dryrun --verbose
 ```
 
-### Execução Normal
+### Normal Execution
 ```bash
 python3 rudder2snipe --verbose
 ```
 
-### Execução com Rate Limiting (recomendado para instâncias grandes)
+### Execution with Rate Limiting (recommended for large instances)
 ```bash
 python3 rudder2snipe --verbose --ratelimited
 ```
 
-### Forçar Atualização de Todos os Assets
+### Force Update All Assets
 ```bash
 python3 rudder2snipe --verbose --force
 ```
 
-## Mapeamento de Campos Rudder → Snipe-IT
+## Field Mapping Rudder → Snipe-IT
 
-O rudder2snipe mapeia automaticamente os seguintes campos do Rudder para o Snipe-IT:
+rudder2snipe automatically maps the following fields from Rudder to Snipe-IT:
 
-| Campo Rudder | Campo Snipe-IT | Descrição |
-|--------------|----------------|-----------|
-| `hostname` | `name` | Nome do asset |
-| `properties.serialNumber` | `serial` | Número de série |
-| `properties.machineType` | `model` | Tipo/modelo da máquina |
-| `properties.ipHostNumber` | `_snipeit_mac_address_1` | Endereço IP/MAC |
-| `properties.osName` | `_snipeit_os_2` | Sistema operacional |
-| `properties.osVersion` | `_snipeit_os_version_3` | Versão do SO |
-| `properties.manufacturer` | `_snipeit_manufacturer_5` | Fabricante |
-| `properties.memorySize` | `_snipeit_memory_6` | Quantidade de memória |
+| Rudder Field | Snipe-IT Field | Description |
+|--------------|----------------|-------------|
+| `hostname` | `name` | Asset name |
+| `properties.serialNumber` | `serial` | Serial number |
+| `properties.machineType` | `model` | Machine type/model |
+| `properties.ipHostNumber` | `_snipeit_mac_address_1` | IP/MAC address |
+| `properties.osName` | `_snipeit_os_2` | Operating system |
+| `properties.osVersion` | `_snipeit_os_version_3` | OS version |
+| `properties.manufacturer` | `_snipeit_manufacturer_5` | Manufacturer |
+| `properties.memorySize` | `_snipeit_memory_6` | Memory amount |
 
-## Logs e Debugging
+## Logs and Debugging
 
-### Para logs detalhados:
+### For detailed logs:
 ```bash
 python3 rudder2snipe --debug
 ```
 
-### Para informações básicas:
+### For basic information:
 ```bash
 python3 rudder2snipe --verbose
 ```
 
-## Solução de Problemas
+## Troubleshooting
 
-### Erro de Autenticação Rudder
-- Verifique se o token API do Rudder está correto
-- Confirme se o token tem permissões de leitura para nós
+### Rudder Authentication Error
+- Check if the Rudder API token is correct
+- Confirm the token has read permissions for nodes
 
-### Erro de SSL
+### SSL Error
 ```bash
 python3 rudder2snipe --do_not_verify_ssl
 ```
@@ -99,22 +99,22 @@ python3 rudder2snipe --do_not_verify_ssl
 python3 rudder2snipe --ratelimited
 ```
 
-## Exemplos de Configurações Avançadas
+## Advanced Configuration Examples
 
-### Mapeamento Personalizado de Usuários
+### Custom User Mapping
 ```ini
 [user-mapping]
 rudder_api_field = properties username
 ```
 
-### Asset Tag Personalizado
+### Custom Asset Tag
 ```ini
 [snipe-it]
 asset_tag = properties serialNumber
 ```
 
-### Campo Personalizado no Snipe-IT
-Para mapear um campo personalizado, primeiro obtenha o nome do campo DB no Snipe-IT e adicione ao mapeamento:
+### Custom Field in Snipe-IT
+To map a custom field, first get the DB field name in Snipe-IT and add it to the mapping:
 
 ```ini
 [api-mapping]
