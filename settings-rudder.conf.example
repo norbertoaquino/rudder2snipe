@@ -1,0 +1,28 @@
+[rudder]
+# This entire section is Required
+url = https://your-rudder-server.domain.com
+api_token = YOUR-RUDDER-API-TOKEN-HERE
+
+[snipe-it]
+#Required
+url = https://FQDN.your.snipe.instance.com
+apikey = YOUR-API-KEY-HERE
+manufacturer_id = 2
+defaultStatus = 2
+computer_model_category_id = 2
+#Not Required, uncomment to use
+#computer_custom_fieldset_id = 3
+#asset_tag = properties serialNumber # If not specified, defaults to rudderid-{id}
+
+# EDIT THESE FIELDS SO THEY CORRESPOND WITH THE CUSTOM FIELD DB COLUMN NAMES IN YOUR SNIPE-IT INSTANCE
+[api-mapping]
+name = hostname
+_snipeit_mac_address_1 = properties ipHostNumber
+_snipeit_os_2 = properties osName
+_snipeit_os_version_3 = properties osVersion
+_snipeit_machine_type_4 = properties machineType
+_snipeit_manufacturer_5 = properties manufacturer
+_snipeit_memory_6 = properties memorySize
+
+[user-mapping] # The field from Rudder that you want to search Snipe with
+rudder_api_field = properties username
