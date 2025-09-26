@@ -7,11 +7,12 @@ Thank you for your interest in contributing to rudder2snipe! This document outli
 ### 1. Fork the Repository
 - Go to https://github.com/norbertoaquino/rudder2snipe
 - Click the "Fork" button on GitHub
-- Clone your fork locally:
+- Clone your fork locally (not the original repository):
 ```bash
-git clone https://github.com/norbertoaquino/rudder2snipe.git
+git clone https://github.com/YOUR-USERNAME/rudder2snipe.git
 cd rudder2snipe
 ```
+Replace `YOUR-USERNAME` with your actual GitHub username.
 
 ### 2. Create a Feature Branch
 ```bash
