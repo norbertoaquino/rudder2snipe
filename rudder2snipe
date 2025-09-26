@@ -82,7 +82,7 @@ user_args = runtimeargs.parse_args()
 
 if user_args.version:
     print(version)
-    raise SystemExit
+    exit(0)
 
 # Notify users they're going to get a wall of text in verbose mode.
 if user_args.debug:

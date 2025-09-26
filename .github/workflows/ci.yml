@@ -44,6 +44,18 @@ jobs:
     
     - name: Test help output
       run: |
+        # Create minimal config file for testing
+        echo "[rudder]" > settings.conf
+        echo "url = https://test.example.com" >> settings.conf
+        echo "api_token = test" >> settings.conf
+        echo "[snipe-it]" >> settings.conf
+        echo "url = https://test.example.com" >> settings.conf
+        echo "apikey = test" >> settings.conf
+        echo "manufacturer_id = 1" >> settings.conf
+        echo "defaultStatus = 1" >> settings.conf
+        echo "computer_model_category_id = 1" >> settings.conf
+        echo "[api-mapping]" >> settings.conf
+        echo "name = hostname" >> settings.conf
         python rudder2snipe --help
     
     - name: Test version output
