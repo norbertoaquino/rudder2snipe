@@ -45,7 +45,7 @@ Lastly, if the asset_tag field is blank in Rudder when it is being created in Sn
 
 ## Requirements:
 
-- Python3 (3.7 or higher) is installed on your system with the requests, json, time, and configparser python libs installed.
+- Python3 (3.8 or higher) is installed on your system with the requests, json, time, and configparser python libs installed.
 - Network access to both your Rudder and Snipe-IT environments.
 - A Rudder API token with read permissions for nodes.
 - Snipe API key for a user that has edit/create permissions for assets and models. Snipe-IT documentation instructions for creating API keys: [https://snipe-it.readme.io/reference#generating-api-tokens](https://snipe-it.readme.io/reference#generating-api-tokens)
@@ -54,10 +54,10 @@ Lastly, if the asset_tag field is blank in Rudder when it is being created in Sn
 
 ### Mac
 
-1. Install Python 3.7 or later
+1. Install Python 3.8 or later
   - Grab the latest PKG installer from the Python website and run it.
 
-2. Add Python 3.7 or later to your PATH
+2. Add Python 3.8 or later to your PATH
   - Run the `Update Shell Profile.command` script in the `/Applications/Python 3.X` folder to add `python3.X` your PATH
 
 3. Create a virtualenv for rudder2snipe
